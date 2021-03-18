@@ -1,0 +1,17 @@
+<th scope="row"> {{id}} </th>
+<td>{{name}}</td>
+<td>
+  <div
+    class="badge"
+    [ngClass]="{'badge-success': status === 'en stock', 'badge-danger': status === 'pas en stock'}">
+    {{status}}
+  </div>
+</td>
+<td>
+  <button
+    class="btn"
+    [ngClass]="{'btn-outline-dark': status === 'en stock', 'btn-dark': status === 'pas en stock'}"
+    (click)="onSwitchProductStatus(nextStatus, id)">
+    {{action}}
+  </button>
+</td>

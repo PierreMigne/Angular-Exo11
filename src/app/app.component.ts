@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ProductService } from './services/product/product.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'exo8';
+  products: Array<any>;
+
+  constructor(private productService: ProductService) {
+    this.products = this.productService.products;
+  }
+
+  onSwitchAllProductsStatus(newStatus: string) {
+    this.productService.switchAllProductsStatus(newStatus);
+  }
 }
