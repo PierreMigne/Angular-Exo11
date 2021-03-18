@@ -47,6 +47,7 @@ export class ProductService {
     for (const product of this.products) {
       if (product.id === productId) {
         product.status = newStatus;
+        break;
       }
     }
   }
