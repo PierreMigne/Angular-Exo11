@@ -51,4 +51,13 @@ export class ProductService {
       }
     }
   }
+
+  getElementById(productId: number) {
+    for (const product of this.products) {
+      if (product.id === productId) {
+        return product;
+      }
+    }
+    return null;
+  }
 }
