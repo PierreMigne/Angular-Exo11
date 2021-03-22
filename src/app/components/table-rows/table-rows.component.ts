@@ -15,6 +15,7 @@ export class TableRowsComponent implements OnInit, OnChanges {
   nextStatus: string;
   action: string;
   detailsUrl: string;
+  detailsEditUrl: string;
 
   constructor(private productService: ProductService) { }
 
@@ -25,6 +26,7 @@ export class TableRowsComponent implements OnInit, OnChanges {
 
   ngOnInit(): void {
     this.detailsUrl = '/product/' + this.id;
+    this.detailsEditUrl = '/product/edit/' + this.id;
   }
 
   onSwitchProductStatus(newStatus: string, productId: number) {

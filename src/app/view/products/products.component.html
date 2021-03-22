@@ -1,7 +1,13 @@
-<div class="container">
-  <button *ngIf="isAuth" class="btn btn-dark float-right text-uppercase mt-2" (click)="onSignOut()">
-    déconnexion
+<div class="container" *ngIf="isAuth">
+  <a routerLink="/product/new" class="btn btn-dark float-left text-uppercase m-2">
+    Ajouter un produit
+  </a>
+  <button class="btn btn-dark float-right text-uppercase m-2" (click)="onSignOut()">
+    Déconnexion
   </button>
+  <a [routerLink]="profilUrl" class="btn btn-dark float-right text-uppercase m-2">
+    Mon profil
+  </a>
 </div>
 <div class="container">
   <div class="text-center">

@@ -11,6 +11,10 @@ import { ErrorComponent } from './view/error/error.component';
 import { ProductsComponent } from './view/products/products.component';
 import { ProductComponent } from './view/product/product.component';
 import { AuthComponent } from './view/auth/auth.component';
+import { NewProductComponent } from './view/new-product/new-product.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { EditProductComponent } from './view/edit-product/edit-product.component';
+import { ProfilComponent } from './view/profil/profil.component';
 
 @NgModule({
   declarations: [
@@ -19,11 +23,16 @@ import { AuthComponent } from './view/auth/auth.component';
     ErrorComponent,
     ProductsComponent,
     ProductComponent,
-    AuthComponent
+    AuthComponent,
+    NewProductComponent,
+    EditProductComponent,
+    ProfilComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [ProductService, AuthService, AuthGuardService],
   bootstrap: [AppComponent]

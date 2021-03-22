@@ -1,0 +1,24 @@
+<div class="container text-center">
+  <form (ngSubmit)="onSubmitEditUser()" [formGroup]="userForm">
+    <div class="form-group">
+      <label for="firstname">Prénom</label>
+      <input type="text" id="firstname" class="form-control" formControlName="firstname" [(ngModel)]="user.firstname">
+    </div>
+    <div class="form-group">
+      <label for="lastname">Nom</label>
+      <input type="text" id="lastname" class="form-control" formControlName="lastname" [(ngModel)]="user.lastname">
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input id="email" class="form-control" formControlName="email" [(ngModel)]="user.email">
+    </div>
+    <div class="form-group">
+      <label for="password">Mot de passe</label>
+      <input type="password" id="password" class="form-control" formControlName="password" [(ngModel)]="user.password">
+    </div>
+
+
+    <button class="btn btn-primary float-right text-uppercase" [disabled]="userForm.invalid">Modifier !</button>
+    <a routerLink="/products" class="btn btn-dark text-uppercase float-left">Retour</a>
+  </form>
+</div>

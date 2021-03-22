@@ -12,13 +12,19 @@ export class ProductsComponent implements OnInit {
 
   products: Array<any>;
   isAuth: boolean;
+  profilUrl: string;
 
-  constructor(private productService: ProductService, private authService: AuthService, private router: Router) {
+  constructor(
+    private productService: ProductService,
+    private authService: AuthService,
+    private router: Router)
+    {
     this.products = this.productService.products;
   }
 
   ngOnInit(): void {
     this.isAuth = this.authService.isAuth;
+    this.profilUrl = '/profil/' + this.authService.userIdAuth;
   }
 
   onSwitchAllProductsStatus(newStatus: string) {

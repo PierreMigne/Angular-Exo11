@@ -1,0 +1,25 @@
+<div class="container text-center">
+  <form (ngSubmit)="onSubmitNewProduct()" #newProduct="ngForm">
+
+    <div class="form-group">
+      <label for="name">Nom du produit</label>
+      <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+        <div *ngIf="name.errors.required">
+          Le nom est requis !
+        </div>
+      </div>
+      <input type="text" id="name" class="form-control" name="name" [(ngModel)]="product.name" required maxlength="30" #name="ngModel">
+    </div>
+
+    <div class="form-group">
+      <label for="status">Statut du produit</label>
+      <select id="status" class="form-control" name="status" [(ngModel)]="product.status">
+        <option value="en stock">En stock</option>
+        <option value="pas en stock">Pas en stock</option>
+      </select>
+    </div>
+
+    <button class="btn btn-primary float-right text-uppercase" [disabled]="newProduct.invalid">Ajouter !</button>
+    <a routerLink="/products" class="btn btn-dark text-uppercase float-left">Retour</a>
+  </form>
+</div>

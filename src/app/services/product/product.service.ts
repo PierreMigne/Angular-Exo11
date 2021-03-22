@@ -1,40 +1,22 @@
 import { Injectable } from '@angular/core';
+import { Product } from 'src/app/models/product.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
 
-  products: Array<any>;
+  products: Array<Product>;
 
   constructor() {
-    this.products = [
-      {
-        id: 0,
-        name: 'Fraise',
-        status: 'en stock'
-      },
-      {
-        id: 1,
-        name: 'Poire',
-        status: 'en stock'
-      },
-      {
-        id: 2,
-        name: 'Banane',
-        status: 'pas en stock'
-      },
-      {
-        id: 3,
-        name: 'Orange',
-        status: 'en stock'
-      },
-      {
-        id: 4,
-        name: 'Pomme',
-        status: 'pas en stock'
-      },
-    ];
+    this.products = [];
+    this.products.push(
+      new Product('Fraise', 'en stock'),
+      new Product('Poire', 'en stock'),
+      new Product('Banane', 'pas en stock'),
+      new Product('Orange', 'en stock'),
+      new Product('Pomme', 'pas en stock'),
+    );
   }
 
   switchAllProductsStatus(newStatus: string) {
@@ -59,5 +41,18 @@ export class ProductService {
       }
     }
     return null;
+  }
+
+  addProduct(newProduct: Product) {
+    this.products.push(newProduct);
+  }
+
+  editProduct(editedProduct: Product) {
+    for (let i = 0; i < this.products.length - 1; i++) {
+      if (this.products[i].id === editedProduct.id) {
+        this.products[i] = editedProduct;
+        break;
+      }
+    }
   }
 }
